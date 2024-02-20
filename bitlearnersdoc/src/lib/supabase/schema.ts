@@ -2,21 +2,22 @@ import { sql } from 'drizzle-orm';
 import {boolean, integer, jsonb, pgTable, text, timestamp, uuid} from 'drizzle-orm/pg-core';
 import { prices, subscriptionStatus, users } from '../../../migrations/schema';
 
-
 export const workspaces = pgTable('workspaces', {
     id: uuid('id').defaultRandom().primaryKey().notNull(),
     createdAt: timestamp('created_at', {
-        withTimezone:true,
-        mode:'string',
-    }),
-    workspaceOwner:uuid('workspace_owner').notNull(),
+      withTimezone: true,
+      mode: 'string',
+    })
+      .defaultNow()
+      .notNull(),
+    workspaceOwner: uuid('workspace_owner').notNull(),
     title: text('title').notNull(),
-    iconid:text ('icon_id').notNull(),
+    iconId: text('icon_id').notNull(),
     data: text('data'),
-    inTrash:text('in_trash'),
-    logo:text('logo'),
-    bannerUrl: text('banner_url') 
-});
+    inTrash: text('in_trash'),
+    logo: text('logo'),
+    bannerUrl: text('banner_url'),
+  });
 
 export const folders = pgTable('folders',{
     id: uuid('id').defaultRandom().primaryKey().notNull(),

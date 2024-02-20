@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/form';
 import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../../../../public/cypresslogo.svg';
+import Logo from '../../../../public/icons/docs-logo.svg';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import Loader from '@/components/global/loader';
@@ -65,7 +65,7 @@ const LoginPage = () => {
         >
           <Image
             src={Logo}
-            alt="cypress Logo"
+            alt="Bit Learners Docs Logo"
             width={50}
             height={50}
           />
@@ -73,7 +73,7 @@ const LoginPage = () => {
             className="font-semibold
           dark:text-white text-4xl first-letter:ml-2"
           >
-            cypress.
+            Bit Learners Docs
           </span>
         </Link>
         <FormDescription

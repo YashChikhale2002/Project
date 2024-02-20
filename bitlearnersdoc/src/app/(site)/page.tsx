@@ -333,6 +333,35 @@ const HomePage = () => {
                   {card.planType}
                 </CardTitle>
               }
+               cardContent={
+                <CardContent className="p-0">
+                  <span
+                    className="font-normal 
+                    text-2xl
+                "
+                  >
+                    ${card.price}
+                  </span>
+                  {+card.price > 0 ? (
+                    <span className="dark:text-washed-purple-800 ml-1">
+                      /mo
+                    </span>
+                  ) : (
+                    ''
+                  )}
+                  <p className="dark:text-washed-purple-800">
+                    {card.description}
+                  </p>
+                  <Button
+                    variant="btn-primary"
+                    className="whitespace-nowrap w-full mt-4"
+                  >
+                    {card.planType === PRICING_PLANS.proplan
+                      ? 'Go Pro'
+                      : 'Get Started'}
+                  </Button>
+                </CardContent>
+              }
               cardFooter={
                 <ul
                   className="font-normal
@@ -355,6 +384,7 @@ const HomePage = () => {
                         src={CheckIcon}
                         alt="Check Icon"
                       />
+                      {feature}
                       </li>
                   ))}
                   </ul>

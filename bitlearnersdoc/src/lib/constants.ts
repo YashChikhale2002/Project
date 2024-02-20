@@ -21,7 +21,7 @@ export const USERS = [
   {
     name: 'Bob',
     message:
-      "I used to spend hours debugging frontend issues, but Cypress simplified everything. Now, I'm more productive, and my colleagues can trust our code thanks to Cypress.",
+      "I used to spend hours debugging frontend issues, but Cypress simplified everything. Now, I'm more productive, and my colleagues can trust our code thanks to Bit Learners Docs.",
   },
   {
     name: 'Charlie',
@@ -56,7 +56,7 @@ export const USERS = [
   {
     name: 'Ivy',
     message:
-      "Our team's collaboration improved immensely with Cypress. We catch issues early, leading to less friction and quicker feature deployments.",
+      "Our team's collaboration improved immensely with Bit Learners Docs. We catch issues early, leading to less friction and quicker feature deployments.",
   },
   {
     name: 'Jack',
@@ -86,7 +86,7 @@ export const USERS = [
   {
     name: 'Olivia',
     message:
-      "We saw immediate benefits in terms of productivity and collaboration after adopting Cypress. It's an essential tool for our development workflow.",
+      "We saw immediate benefits in terms of productivity and collaboration after adopting Bit Learners Docs. It's an essential tool for our development workflow.",
   },
   {
     name: 'Paul',

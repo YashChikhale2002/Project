@@ -19,9 +19,21 @@ export const workspaces = pgTable("workspaces", {
 	title: text("title").notNull(),
 	iconId: text("icon_id").notNull(),
 	data: text("data"),
+	inTrash: text("in_Trash"),
+	logo: text("logo"),
+	bannerUrl: text("banner_url"),
+});
+
+export const folders = pgTable("folders", {
+	id: uuid("id").defaultRandom().primaryKey().notNull(),
+	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }),
+	title: text("title").notNull(),
+	iconId: text("icon_id").notNull(),
+	data: text("data"),
 	inTrash: text("in_trash"),
 	logo: text("logo"),
 	bannerUrl: text("banner_url"),
+	workspaceId: uuid("workspace_id").references(() => workspaces.id, { onDelete: "cascade" } ),
 });
 
 export const files = pgTable("files", {
@@ -37,18 +49,6 @@ export const files = pgTable("files", {
 	folderId: uuid("folder_id").references(() => folders.id, { onDelete: "cascade" } ),
 });
 
-export const folders = pgTable("folders", {
-	id: uuid("id").defaultRandom().primaryKey().notNull(),
-	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }),
-	title: text("title").notNull(),
-	iconId: text("icon_id").notNull(),
-	data: text("data"),
-	inTrash: text("in_trash"),
-	logo: text("logo"),
-	bannerUrl: text("banner_url"),
-	workspaceId: uuid("workspace_id").references(() => workspaces.id, { onDelete: "cascade" } ),
-});
-
 export const users = pgTable("users", {
 	id: uuid("id").primaryKey().notNull(),
 	fullName: text("full_name"),
@@ -56,7 +56,7 @@ export const users = pgTable("users", {
 	billingAddress: jsonb("billing_address"),
 	updatedAt: timestamp("updated_at", { withTimezone: true, mode: 'string' }),
 	paymentMethod: jsonb("payment_method"),
-	emial: text("emial"),
+	email: text("email"),
 },
 (table) => {
 	return {
@@ -99,18 +99,18 @@ export const products = pgTable("products", {
 
 export const subscriptions = pgTable("subscriptions", {
 	id: text("id").primaryKey().notNull(),
-	userId: uuid("user_id").notNull().references(() => users.id),
+	userId: uuid("user_id").notNull().references(() => users.id).references(() => users.id),
 	status: subscriptionStatus("status"),
 	metadata: jsonb("metadata"),
-	priceId: text("price_id").references(() => prices.id),
-	quantity: integer('quantity'),
+	priceId: text("price_id").references(() => prices.id).references(() => prices.id),
+	quantity: integer("quantity"),
 	cancelAtPeriodEnd: boolean("cancel_at_period_end"),
-	created: timestamp("created", { withTimezone: true, mode: 'string' }).default(sql`now()`).notNull(),
-	currentPeriodStart: timestamp("current_period_start", { withTimezone: true, mode: 'string' }).default(sql`now()`).notNull(),
-	currentPeriodEnd: timestamp("current_period_end", { withTimezone: true, mode: 'string' }).default(sql`now()`).notNull(),
-	endedAt: timestamp("ended_at", { withTimezone: true, mode: 'string' }).default(sql`now()`),
-	cancelAt: timestamp("cancel_at", { withTimezone: true, mode: 'string' }).default(sql`now()`),
-	canceledAt: timestamp("canceled_at", { withTimezone: true, mode: 'string' }).default(sql`now()`),
-	trialStart: timestamp("trial_start", { withTimezone: true, mode: 'string' }).default(sql`now()`),
-	trialEnd: timestamp("trial_end", { withTimezone: true, mode: 'string' }).default(sql`now()`),
+	created: timestamp("created", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())).notNull(),
+	currentPeriodStart: timestamp("current_period_start", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())).notNull(),
+	currentPeriodEnd: timestamp("current_period_end", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())).notNull(),
+	endedAt: timestamp("ended_at", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())),
+	cancelAt: timestamp("cancel_at", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())),
+	canceledAt: timestamp("canceled_at", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())),
+	trialStart: timestamp("trial_start", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())),
+	trialEnd: timestamp("trial_end", { withTimezone: true, mode: 'string' }).default(timezone('utc'::text, now())),
 });

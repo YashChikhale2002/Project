@@ -18,7 +18,11 @@ import React, { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+<<<<<<< HEAD
 import Logo from '../../../../public/icons/docs-logo.svg';
+=======
+import Logo from '../../../../public/cypresslogo.svg';
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf
 import Loader from '@/components/global/loader';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MailCheck } from 'lucide-react';
@@ -102,7 +106,11 @@ const Signup = () => {
         >
           <Image
             src={Logo}
+<<<<<<< HEAD
             alt="Bit Learners Docs Logo"
+=======
+            alt="cypress Logo"
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf
             width={50}
             height={50}
           />
@@ -110,7 +118,11 @@ const Signup = () => {
             className="font-semibold
           dark:text-white text-4xl first-letter:ml-2"
           >
+<<<<<<< HEAD
             Bit Learners Docs.
+=======
+            cypress.
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf
           </span>
         </Link>
         <FormDescription

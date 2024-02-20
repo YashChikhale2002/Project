@@ -2,7 +2,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import Logo from '../../../public/icons/docs-logo.svg';
+=======
+import Logo from '../../../public/cypresslogo.svg';
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf
 
 import {
   NavigationMenu,
@@ -89,7 +93,11 @@ const Header = () => {
           dark:text-white
         "
         >
+<<<<<<< HEAD
           Bit Learners Docs.
+=======
+          cypress.
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf
         </span>
       </Link>
       <NavigationMenu className="hidden md:block">

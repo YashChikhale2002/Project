@@ -36,4 +36,8 @@ export async function actionSignUpUser({
     },
   });
   return response;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e77342e0c499f3f16a6faccbdbc103fc22b66daf

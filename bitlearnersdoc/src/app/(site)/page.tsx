@@ -14,7 +14,6 @@ import CustomCard from '@/components/landing-page/custom-card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CardContent, CardDescription, CardTitle } from '@/components/ui/card';
 
-
 const HomePage = () => {
   return (
     <>
@@ -53,7 +52,7 @@ const HomePage = () => {
             bg-background
           "
           >
-            Get Cypress Free
+            Get Bit Learners DocsFree
           </Button>
         </div>
         <div
@@ -333,7 +332,7 @@ const HomePage = () => {
                   {card.planType}
                 </CardTitle>
               }
-               cardContent={
+              cardContent={
                 <CardContent className="p-0">
                   <span
                     className="font-normal 
@@ -385,11 +384,11 @@ const HomePage = () => {
                         alt="Check Icon"
                       />
                       {feature}
-                      </li>
+                    </li>
                   ))}
-                  </ul>
+                </ul>
               }
-            ></CustomCard>
+            />
           ))}
         </div>
       </section>

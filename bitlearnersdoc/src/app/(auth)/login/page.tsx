@@ -22,7 +22,6 @@ import Loader from '@/components/global/loader';
 import { Separator } from '@/components/ui/separator';
 import { actionLoginUser } from '@/lib/server-actions/auth-actions';
 
-
 const LoginPage = () => {
   const router = useRouter();
   const [submitError, setSubmitError] = useState('');
@@ -65,7 +64,7 @@ const LoginPage = () => {
         >
           <Image
             src={Logo}
-            alt="Bit Learners Docs Logo"
+            alt="Bit Learners DocsLogo"
             width={50}
             height={50}
           />
@@ -73,7 +72,7 @@ const LoginPage = () => {
             className="font-semibold
           dark:text-white text-4xl first-letter:ml-2"
           >
-            Bit Learners Docs
+            Bit Learners Docs.
           </span>
         </Link>
         <FormDescription
@@ -123,7 +122,7 @@ const LoginPage = () => {
           size="lg"
           disabled={isLoading}
         >
-             {!isLoading ? 'Login' : <Loader />}
+          {!isLoading ? 'Login' : <Loader />}
         </Button>
         <span className="self-container">
           Dont have an account?{' '}
